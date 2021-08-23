@@ -1,0 +1,21 @@
+{
+	"name": "website",
+	"version": "1.0.0",
+	"description": "",
+	"main": "./src/lib/backend/index.js",
+	"dependencies": {
+		"express": "^4.17.1",
+		"npm": "^7.20.6",
+		"path": "^0.12.7",
+		"typescript": "^4.3.5"
+	},
+	"devDependencies": {
+		"@types/node": "^16.6.1"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "tsc src/lib/backend/index.ts --resolveJsonModule"
+	},
+	"author": "",
+	"license": "ISC"
+}

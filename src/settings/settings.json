@@ -1,0 +1,6 @@
+{
+	"route": {
+		"port": 8000,
+		"domain": "localhost"
+	}
+}
