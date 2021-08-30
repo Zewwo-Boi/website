@@ -14,4 +14,4 @@ if (isMobile) {
 	window.location.replace(`http://localhost:8000/m`);
 }
 
-console.log("Loaded")
+console.log('Loaded');

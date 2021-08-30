@@ -13,8 +13,7 @@
 		"@types/node": "^16.6.1"
 	},
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "tsc src/lib/backend/index.ts --resolveJsonModule"
+		"start": "node src/lib/backend/index.js"
 	},
 	"author": "",
 	"license": "ISC"
