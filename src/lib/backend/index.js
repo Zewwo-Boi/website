@@ -21,4 +21,4 @@ app.get('/', (req, res) => {
 	res.sendFile(getAbsolutePath('../../https/desktop/html/home/index.html'));
 });
 
-app.listen(settings.route.port);
+app.listen(process.env.PORT || 8000);
