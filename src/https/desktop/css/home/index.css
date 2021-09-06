@@ -1,10 +1,5 @@
 :root {
-	--main-bg-color-gradient: linear-gradient(
-		135deg,
-		#337aff,
-		#0099ff,
-		#1f87ff
-	);
+	--main-bg-color-gradient: linear-gradient(135deg, #337aff, #0099ff, #1f87ff);
 	--main-bg-color: #0400ff;
 }
 
@@ -55,6 +50,16 @@ div.body {
 	background-color: white;
 }
 
+.header-ico-menu {
+	position: inherit;
+	top: 5%;
+	left: 2%;
+	height: 15%;
+	width: 15%;
+	z-index: 3;
+	fill: #000;
+}
+
 .main-header {
 	position: inherit;
 	top: 14%;
@@ -64,7 +69,7 @@ div.body {
 
 .header-text {
 	font-weight: 600;
-	font-family: 'Montserrat', sans-serif;
+	font-family: "Montserrat";
 	color: #fff;
 	font-size: 500%;
 	text-align: center;
@@ -87,9 +92,6 @@ div.body {
 	position: relative;
 	display: block;
 	width: calc(100% + 1.3px);
-}
-
-.hbd-wve .shape-fill {
 }
 
 #top-wve {
