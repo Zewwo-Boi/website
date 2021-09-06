@@ -8,5 +8,5 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
 
 if (!isMobile) {
-	window.location.replace(`http://localhost:8000/d`);
+	window.location.replace(`http://${window.location.hostname}:${window.location.port}`);
 };
