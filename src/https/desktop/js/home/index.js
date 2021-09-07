@@ -17,6 +17,16 @@ if (isMobile) {
 	);
 }
 
+
+
+if (history.scrollRestoration) {
+	history.scrollRestoration = "manual";
+} else {
+	window.onbeforeunload = function () {
+		window.scrollTo(0, 0);
+	};
+}
+
 //Determine screen resolution
 let resolution;
 let resolutionType;
@@ -48,7 +58,6 @@ window.addEventListener("load", () => {
 		entries.forEach((entry) => {
 			const element = document.getElementById("top-header");
 			const elements = document.getElementsByClassName("top-header-links");
-
 
 			if (entry.isIntersecting) {
 				if (element.classList.contains("top-header-opacity-visible")) {
