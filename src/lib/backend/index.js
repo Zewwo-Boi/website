@@ -1,27 +1,24 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const path = require('path');
-const compression = require('compression');
-
-let settings = require('../../settings/settings.json');
+const path = require("path");
+const compression = require("compression");
+const routes = require("./routes");
+const middleware = require("./middleware");
 
 function getAbsolutePath(_) {
 	return path.join(__dirname, _);
 }
 
-app.use(express.static(getAbsolutePath('../../https/')));
+app.use(express.static(getAbsolutePath("../../https/")));
 app.use(compression());
 
-app.get('/d', (req, res) => {
-	res.sendFile(getAbsolutePath('../../https/desktop/html/home/index.html'));
+// Routes & Middleware combined
+app.use(routes);
+
+// Error 404
+app.use(function (req, res, next) {
+	res.status(404).sendFile(getAbsolutePath("../../https/desktop/html/404/index.html"));
 });
 
-app.get('/m', (req, res) => {
-	res.sendFile(getAbsolutePath('../../https/mobile/html/home/index.html'));
-});
-
-app.get('/', (req, res) => {
-	res.sendFile(getAbsolutePath('../../https/desktop/html/home/index.html'));
-});
-
+// Listen at port 8000
 app.listen(process.env.PORT || 8000);

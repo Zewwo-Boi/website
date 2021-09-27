@@ -1,0 +1,1 @@
+document.getElementById("link").href = `http://${window.location.hostname}:${window.location.port}`;

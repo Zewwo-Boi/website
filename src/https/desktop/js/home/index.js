@@ -1,24 +1,3 @@
-//Is it mobile?
-let isMobile;
-
-if (
-	/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-		navigator.userAgent
-	)
-) {
-	isMobile = true;
-} else {
-	isMobile = false;
-}
-
-if (isMobile) {
-	window.location.replace(
-		`http://${window.location.hostname}:${window.location.port}/m`
-	);
-}
-
-
-
 if (history.scrollRestoration) {
 	history.scrollRestoration = "manual";
 } else {
@@ -44,20 +23,14 @@ if (screen.width == 2560 && screen.height == 1440) {
 
 //Is it loaded? Then run the code in the chunk below
 window.addEventListener("load", () => {
-	if (resolutionType === "1440p") {
-		document.getElementById("header-text-div").style.top = "40%";
-		document.getElementById("header-text-main").style.fontSize = "600%";
-		document.getElementById("header-text-sub").style.fontSize = "450%";
-	}
-
 	document.getElementById(
 		"header-login-link"
 	).href = `http://${window.location.hostname}:${window.location.port}/login`;
 
+	// Add observer for top header
 	const observer = new IntersectionObserver((entries) => {
 		entries.forEach((entry) => {
 			const element = document.getElementById("top-header");
-			const elements = document.getElementsByClassName("top-header-links");
 
 			if (entry.isIntersecting) {
 				if (element.classList.contains("top-header-opacity-visible")) {
@@ -73,4 +46,38 @@ window.addEventListener("load", () => {
 		});
 	});
 	observer.observe(document.querySelector(".header-animation-body"));
+
+	// Add observer for slide 1
+	const observer2 = new IntersectionObserver((entries) => {
+		entries.forEach((entry) => {
+			const element = document.getElementById("slide-expanded-1");
+
+			if (entry.isIntersecting) {
+				element.classList.add("slide-expanded-1-reveal");
+				const slideExpanded1 = document.querySelector(
+					".slide-expanded-1-reveal"
+				);
+				const slideExpanded1Text = document.getElementById(
+					"#slide-expanded-text-1"
+				);
+
+				slideExpanded1.addEventListener("animationend", () => {
+					//TODO: Add text reveal animation
+				});
+			}
+		});
+	});
+	observer2.observe(document.getElementById("slide-expanded-1"));
+
+	// Add observer for slide 2
+	const observer3 = new IntersectionObserver((entries) => {
+		entries.forEach((entry) => {
+			const element = document.getElementById("slide-expanded-2");
+
+			if (entry.isIntersecting) {
+				element.classList.add("slide-expanded-2-reveal");
+			}
+		});
+	});
+	observer3.observe(document.getElementById("slide-expanded-2"));
 });
