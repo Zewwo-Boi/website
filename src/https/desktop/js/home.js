@@ -6,7 +6,7 @@ if (history.scrollRestoration) {
 	};
 }
 
-//Determine screen resolution
+// Determine screen resolution
 let resolution;
 let resolutionType;
 
@@ -21,11 +21,9 @@ if (screen.width == 2560 && screen.height == 1440) {
 	resolutionType = "2160p";
 }
 
-//Is it loaded? Then run the code in the chunk below
+// Is it loaded? Then run the code in the chunk below
 window.addEventListener("load", () => {
-	document.getElementById(
-		"header-login-link"
-	).href = `http://${window.location.hostname}:${window.location.port}/login`;
+	document.getElementById("header-login-link").href = `http://${window.location.hostname}:${window.location.port}/login`;
 
 	// Add observer for top header
 	const observer = new IntersectionObserver((entries) => {
@@ -54,12 +52,8 @@ window.addEventListener("load", () => {
 
 			if (entry.isIntersecting) {
 				element.classList.add("slide-expanded-1-reveal");
-				const slideExpanded1 = document.querySelector(
-					".slide-expanded-1-reveal"
-				);
-				const slideExpanded1Text = document.getElementById(
-					"#slide-expanded-text-1"
-				);
+				const slideExpanded1 = document.querySelector(".slide-expanded-1-reveal");
+				const slideExpanded1Text = document.getElementById("#slide-expanded-text-1");
 
 				slideExpanded1.addEventListener("animationend", () => {
 					//TODO: Add text reveal animation

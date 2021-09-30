@@ -14,20 +14,20 @@ router.use((req, res, next) => {
 
 // Index
 router.get("/", function (req, res) {
-	res.sendFile(getAbsolutePath("../../https/desktop/html/home/index.html"));
+	res.sendFile(getAbsolutePath("../../https/desktop/html/home.html"));
 });
 
 router.get("/m", function (req, res) {
-	res.sendFile(getAbsolutePath("../../https/mobile/html/home/index.html"));
+	res.sendFile(getAbsolutePath("../../https/mobile/html/home.html"));
 });
 
 // Login
 router.get("/login", function (req, res) {
-	res.sendFile(getAbsolutePath("../../https/desktop/html/login/index.html"));
+	res.sendFile(getAbsolutePath("../../https/desktop/html/login.html"));
 });
 
 router.get("/m/login", function (req, res) {
-	res.sendFile(getAbsolutePath("../../https/mobile/html/login/index.html"));
+	res.sendFile(getAbsolutePath("../../https/mobile/html/login.html"));
 });
 
 module.exports = router;

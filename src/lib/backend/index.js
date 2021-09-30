@@ -17,7 +17,7 @@ app.use(routes);
 
 // Error 404
 app.use(function (req, res, next) {
-	res.status(404).sendFile(getAbsolutePath("../../https/desktop/html/404/index.html"));
+	res.status(404).sendFile(getAbsolutePath("../../https/desktop/html/404.html"));
 });
 
 // Listen at port 8000
