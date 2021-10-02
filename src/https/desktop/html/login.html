@@ -17,13 +17,15 @@
 		<div id="header">
 			<h2 id="header-text">Login</h2>
 		</div>
-		<div class="login-container glass-morphism" id="container">
-			<form id="form">
-				<label class="label" id="email-label" for="email">Email</label>
-				<input type="email" class="input" id="email" name="email" placeholder="Enter your email" />
-				<label class="label" id="password-label" for="password">Password</label>
-				<input type="password" id="password" class="input" id="password" name="password" placeholder="Enter your password" />
-			</form>
-		</div>
+		<form class="login-container glass-morphism" id="container">
+			<div class="field">
+				<input type="email" name="email" class="input" required placeholder="" />
+				<label for="email" class="label">Email</label>
+			</div>
+			<div class="field">
+				<input type="password" name="password" class="input" required placeholder="" />
+				<label for="password" class="label">Password</label>
+			</div>
+		</form>
 	</body>
 </html>
