@@ -1,11 +1,14 @@
-.background {
-	position: absolute;
-	background-image: var(--main-bg-color-linear-gradient);
-	width: 100%;
-	height: 340%;
-	left: 0;
-	top: 0;
+html {
+	height: 100%;
 }
+
+body {
+	height: 340%;
+	margin: 0;
+	background: var(--main-bg-color-linear-gradient);
+	background-repeat: no-repeat;
+}
+
 
 div.header {
 	position: absolute;
@@ -37,10 +40,10 @@ div.body {
 	top: 0;
 	left: 50%;
 	transform: translate(-50%);
-	height: 12%;
+	height: 100px;
 	width: 100%;
-	z-index: 3;
 	background-color: var(--main-top-heading-color-visible);
+	z-index: 2;
 }
 
 .top-header-opacity-none {
@@ -65,14 +68,12 @@ div.body {
 	margin: 0;
 	text-align: center;
 	color: #002383;
-	z-index: 4;
 	animation: text-hover-after 0.2s ease-in 0s;
 }
 
 .top-header-links:hover {
 	animation: text-hover 0.2s ease-in 0s;
 	animation-fill-mode: forwards;
-	z-index: inherit;
 }
 
 #header-login-link {
@@ -81,7 +82,6 @@ div.body {
 	right: 3%;
 	top: 50%;
 	transform: translate(-3%, -50%);
-	z-index: inherit;
 }
 
 .main-header {
@@ -160,7 +160,6 @@ div.body {
 .slide-expanded {
 	position: inherit;
 	border-radius: 10vh;
-	z-index: inherit;
 }
 
 #slide-expanded-1 {
@@ -192,7 +191,7 @@ div.body {
 .slide-expanded-text {
 	position: inherit;
 	font-family: Roboto, sans-serif;
-	font-size: 30px;
+	font-size: 50px;
 	background: var(--main-text-color-gradient);
 	background-clip: text;
 	-webkit-background-clip: text;

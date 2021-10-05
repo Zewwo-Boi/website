@@ -14,18 +14,16 @@
 	</head>
 	<body>
 		<div class="background"></div>
-		<div id="header">
-			<h2 id="header-text">Login</h2>
-		</div>
 		<form class="login-container glass-morphism" id="container">
 			<div class="field">
-				<input type="email" name="email" class="input" required placeholder="" />
+				<input type="email" name="email" class="input" required autocomplete="off" placeholder=" " />
 				<label for="email" class="label">Email</label>
 			</div>
 			<div class="field">
-				<input type="password" name="password" class="input" required placeholder="" />
+				<input type="password" name="password" class="input" id="passwordInput" required autocomplete="off" placeholder=" " />
 				<label for="password" class="label">Password</label>
 			</div>
+			<div id="password-visibility-toggle" class="disabled"></div>
 		</form>
 	</body>
 </html>
