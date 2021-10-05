@@ -58,7 +58,7 @@ div.body {
 
 .top-header-links {
 	position: absolute;
-	font-family: Poppins, sans-serif;
+	font-family: Poppins;
 	font-weight: 300;
 	font-size: 200%;
 	display: -webkit-flex;
@@ -94,7 +94,7 @@ div.body {
 
 .header-text {
 	font-weight: 600;
-	font-family: Poppins, sans-serif;
+	font-family: Poppins;
 	background: var(--main-text-color-gradient);
 	background-clip: text;
 	-webkit-background-clip: text;
@@ -190,8 +190,9 @@ div.body {
 
 .slide-expanded-text {
 	position: inherit;
-	font-family: Roboto, sans-serif;
+	font-family: Roboto;
 	font-size: 50px;
+	letter-spacing: 0.3px;
 	background: var(--main-text-color-gradient);
 	background-clip: text;
 	-webkit-background-clip: text;

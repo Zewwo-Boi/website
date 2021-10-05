@@ -4,17 +4,16 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Simply - Login</title>
+		<title>Simply - Sign in</title>
 		<link rel="stylesheet" href="/public/css/root.css" />
-		<link rel="stylesheet" href="/desktop/css/login.css" />
+		<link rel="stylesheet" href="/desktop/css/signin.css" />
 		<link rel="stylesheet" href="/public/font/roboto/stylesheet.css" />
 		<link rel="preload" href="/public/font/poppins/stylesheet.css" as="style" onload="this.rel='stylesheet'" />
-		<link rel="preload" href="/desktop/js/login.js" as="script" />
-		<script src="/desktop/js/login.js"></script>
+		<script src="/desktop/js/signin.js"></script>
 	</head>
 	<body>
-		<div class="background"></div>
 		<form class="login-container glass-morphism" id="container">
+			<h2 id="login-header">Sign In</h2>
 			<div class="field">
 				<input type="email" name="email" class="input" required autocomplete="off" placeholder=" " />
 				<label for="email" class="label">Email</label>
@@ -23,7 +22,13 @@
 				<input type="password" name="password" class="input" id="passwordInput" required autocomplete="off" placeholder=" " />
 				<label for="password" class="label">Password</label>
 			</div>
-			<div id="password-visibility-toggle" class="disabled"></div>
+			<div class="show-password-div">
+				<input id="show-password" type="checkbox" autocomplete="off" />
+				<label for="show-password">
+					<span></span>
+					Show Password
+				</label>
+			</div>
 		</form>
 	</body>
 </html>

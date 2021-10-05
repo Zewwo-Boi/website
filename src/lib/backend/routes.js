@@ -3,31 +3,26 @@ const router = express.Router();
 const path = require("path");
 const middleware = require("./middleware");
 
+// Routes
+const index = require("./routes/index");
+const login = require("./routes/login");
+
 function getAbsolutePath(_) {
 	return path.join(__dirname, _);
 }
 
 router.use((req, res, next) => {
-	middleware(req, res);
-	next();
+	try {
+		middleware(req, res, next);
+	} catch (err) {}
 });
 
 // Index
-router.get("/", function (req, res) {
-	res.sendFile(getAbsolutePath("../../https/desktop/html/home.html"));
-});
-
-router.get("/m", function (req, res) {
-	res.sendFile(getAbsolutePath("../../https/mobile/html/home.html"));
-});
+router.get("/", index.desktop);
+router.get("/m", index.mobile);
 
 // Login
-router.get("/login", function (req, res) {
-	res.sendFile(getAbsolutePath("../../https/desktop/html/login.html"));
-});
-
-router.get("/m/login", function (req, res) {
-	res.sendFile(getAbsolutePath("../../https/mobile/html/login.html"));
-});
+router.get("/login", login.desktop);
+router.get("/m/login", login.mobile);
 
 module.exports = router;
