@@ -1,8 +1,7 @@
-const isMobile = require("./middlewares/isMobile");
-
-module.exports = (req, res, next) => {
+module.exports = (req, res) => {
 	try {
-		isMobile(req, res);
-	} catch (lol) {}
-	next();
+		if (!req.cookies.isRedirectedMobile) require("./middlewares/isMobile")(req, res);
+	} catch (lol) {
+		console.error(lol);
+	}
 };

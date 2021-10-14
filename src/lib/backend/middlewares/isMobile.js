@@ -1,4 +1,4 @@
-module.exports = (req, res) => {
+module.exports = async (req, res) => {
 	function isMobile(useragent) {
 		let isMobile;
 
@@ -10,9 +10,14 @@ module.exports = (req, res) => {
 		return isMobile;
 	}
 	if (isMobile(req.get("user-agent")) && !req.originalUrl.startsWith("/m")) {
-		res.redirect(`${req.protocol}://${req.get("host")}/m${req.originalUrl}`);
-	} else if (!isMobile(req.get("user-agent")) && req.originalUrl.startsWith("/m")) {
-		res.redirect(`${req.protocol}://${req.get("host")}${req.originalUrl.slice(2)}`);
-	} else {
+		let url = `${req.protocol}://${req.get("host")}/m${req.originalUrl}`;
+		await res.cookie("isRedirectedMobile", true, { maxAge: 1500, httpOnly: true });
+		return res.redirect(url);
+	}
+
+	if (!isMobile(req.get("user-agent")) && req.originalUrl.startsWith("/m")) {
+		let url = `${req.protocol}://${req.get("host")}${req.originalUrl.slice(2)}`;
+		await res.cookie("isRedirectedMobile", true, { maxAge: 1500, httpOnly: true });
+		return res.redirect(url);
 	}
 };

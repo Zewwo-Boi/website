@@ -1,7 +1,7 @@
-input:focus,
-textarea:focus,
-select:focus {
-	outline: none;
+:root {
+	--text-color: #afafaf;
+	--emailField-color: #000000;
+	--passwordField-color: #000000;
 }
 
 html {
@@ -12,19 +12,45 @@ html {
 body {
 	height: 100%;
 	margin: 0;
-	background-image: var(--main-bg-color-radial-gradient);
-	background-repeat: no-repeat;
+}
+
+#go-back {
+	position: absolute;
+	top: 2%;
+	left: 1%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+#go-back svg {
+	position: inherit;
+	height: 24px;
+	width: 24px;
+}
+
+#go-back a {
+	margin-left: -3px;
+	flex: 4;
+	font-family: Roboto;
+	color: black;
 }
 
 .login-container {
 	position: absolute;
+	border-radius: 15px;
+	background: inherit;
+	box-shadow: 0 0px 24px 0 rgba(31, 38, 135, 0.37);
+	color: inherit;
+	border: 1px solid;
+	border-color: inherit;
 	top: 50%;
 	left: 50%;
 	height: 50%;
-	width: 30%;
+	width: 40%;
 	min-height: 500px;
 	transform: translate(-50%, -50%);
-	border-radius: 15px;
 }
 
 #login-header {
@@ -40,7 +66,6 @@ body {
 }
 
 form {
-	--text-color: #afafaf;
 	color: var(--text-color);
 	max-width: 500px;
 	font-family: Roboto;
@@ -50,13 +75,33 @@ form {
 	width: 80%;
 	position: relative;
 	border-bottom: 2px solid var(--text-color);
-	margin: 15% auto 10px;
+	margin: 10vh auto 1vh auto;
 }
 
 .label {
 	color: var(--text-color);
 	font-weight: 400;
 	font-size: 1.2rem;
+	z-index: -1;
+	position: absolute;
+	left: 0;
+	bottom: -2rem;
+	transform: translateY(-2rem);
+	transform-origin: 0%;
+	transition: transform 250ms;
+}
+
+.input-error {
+	color: var(--text-color);
+	font-weight: 400;
+	font-size: 0.8rem;
+	color: red;
+	z-index: -1;
+	position: absolute;
+	right: 0;
+	bottom: 2.3rem;
+	overflow-wrap: break-word;
+	max-width: 60%;
 }
 
 .input {
@@ -72,35 +117,35 @@ form {
 	font-size: 1.2rem;
 }
 
+#passwordInput {
+	letter-spacing: 0.3em;
+}
+
 .field::after {
 	content: "";
 	border: none;
-	border-radius: 4px;
 	position: relative;
 	display: block;
-	height: 4px;
+	height: 3px;
 	width: 100%;
-	background: black;
 	transform: scaleX(0);
-	transform-origin: 0;
+	transform-origin: 50%;
 	opacity: 0;
-	transition: all 350ms ease;
-	top: 3px;
+	transition: all 250ms ease;
+	top: 2.5px;
+}
+
+.emailField::after {
+	background: var(--emailField-color);
+}
+
+.passwordField::after {
+	background: var(--passwordField-color);
 }
 
 .field:focus-within::after {
 	transform: scaleX(1);
 	opacity: 1;
-}
-
-.label {
-	z-index: -1;
-	position: absolute;
-	left: 0;
-	bottom: -2rem;
-	transform: translateY(-2rem);
-	transform-origin: 0%;
-	transition: transform 350ms;
 }
 
 .field:focus-within .label,
@@ -113,30 +158,34 @@ form {
 }
 
 .show-password-div {
-	--size: 18px;
+	--size: 16px;
+	--timing: 100ms;
 	display: flex;
 	justify-content: flex-start;
-	font: var(--size)/1.4 Roboto;
+	font: var(--size) / 1.4 Roboto;
 	color: black;
 	user-select: none;
 }
 
 #show-password {
+	position: absolute;
+	left: -150%;
 	width: 0;
 	height: 0;
-	opacity: 0;
+	border: none;
+	background: none;
 }
 
-#show-password + label {
+#show-password-label {
 	position: relative;
 	display: flex;
-	margin: 0 0 0 8%;
+	margin: 0 0 0 10%;
 	align-items: center;
 	color: black;
-	transition: color 250ms cubic-bezier(0.4, 0, 0.23, 1);
+	cursor: pointer;
 }
 
-#show-password + label > span {
+#show-password-label > span {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -147,7 +196,7 @@ form {
 	border: 2px solid #303030;
 	border-radius: 2px;
 	cursor: pointer;
-	transition: all 250ms cubic-bezier(0.4, 0, 0.23, 1);
+	transition: all var(--timing) cubic-bezier(0.4, 0, 0.23, 1);
 }
 
 #show-password:checked + label > span {
@@ -163,7 +212,7 @@ form {
 	border-bottom: 3px solid transparent;
 	transform: rotate(45deg);
 	transform-origin: 0% 100%;
-	animation: checkbox-check 125ms 250ms cubic-bezier(0.4, 0, 0.23, 1) forwards;
+	animation: checkbox-check var(--timing) var(--timing) cubic-bezier(0.4, 0, 0.23, 1) forwards;
 }
 
 @keyframes checkbox-check {
@@ -184,4 +233,81 @@ form {
 		border-color: white;
 		transform: translate3d(0, -0.5em, 0) rotate(45deg);
 	}
+}
+
+.options {
+	position: absolute;
+	bottom: 5%;
+	height: 20%;
+	width: 100%;
+}
+
+.login {
+	position: relative;
+	text-align: center;
+	display: block;
+	top: 0;
+	width: 100%;
+	height: 50%;
+	margin: 0;
+}
+
+#login-submit {
+	position: relative;
+	font: inherit;
+	background-color: #333333;
+	border: 1px #868686 solid;
+	box-shadow: 0 0 8px 4px #424242;
+	color: white;
+	border-radius: 10px;
+	width: 90px;
+	height: 45px;
+	cursor: pointer;
+	animation: text-hover-after 140ms ease-in 0s;
+}
+
+#login-submit:hover {
+	animation: text-hover 140ms ease-in 0s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes text-hover {
+	from {
+		background-color: #333333;
+		border: 1px #868686 solid;
+	}
+
+	to {
+		background-color: #1f1f1f;
+		border: 1px #aaaaaa solid;
+	}
+}
+
+@keyframes text-hover-after {
+	from {
+		background-color: #1f1f1f;
+		border: 1px #aaaaaa solid;
+	}
+
+	to {
+		background-color: #333333;
+		border: 1px #868686 solid;
+	}
+}
+
+.no-account {
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	margin-top: 6px;
+	height: 50%;
+	font: inherit;
+}
+
+#signup-link {
+	display: inline;
+	font: inherit;
+	font-size: 16px;
+	color: #1a73e8;
+	letter-spacing: 0.0107142857em;
 }

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Join one of the simplest forums in the world">
+		<title>Simply - Sign up</title>
+		<link rel="stylesheet" href="/public/css/root.css" />
+		<link rel="stylesheet" href="/desktop/css/signup.css" />
+		<link rel="stylesheet" href="/public/font/roboto/stylesheet.css" />
+		<link rel="preload" href="/public/font/poppins/stylesheet.css" as="style" onload="this.rel='stylesheet'" />
+		<script src="/desktop/js/signup.js"></script>
+		<script src="/public/js/progressbar.js"></script>
+	</head>
+	<body class="theme-white">
+		<div id="uCITgH">
+			<div class="dkVGfg"></div>
+			<div class="AQ9jNR u3phRK"></div>
+			<div class="AQ9jNR hjDIHO"></div>
+		</div>
+
+		<div id="go-back">
+			<div class="svg">
+				<svg viewBox="0 0 24 24" fill="#000000">
+					<path d="M0 0h24v24H0V0z" fill="none" />
+					<path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z" />
+				</svg>
+			</div>
+
+			<a id="FjfFDN">Go back</a>
+		</div>
+		<form class="signup-container" id="container" onsubmit="signup()">
+			<h2 id="signup-header">Sign Up</h2>
+			<div class="field usernameField" id="field-username">
+				<input type="text" name="username" class="input" id="usernameInput" aria-invalid="false" autocomplete="username" placeholder=" " onblur="validate(`username`, this.value, document.getElementById(`field-username`), document.getElementById(`container`))" />
+				<label for="usernameInput" class="label">Username</label>
+				<label for="usernameInput" class="input-error" id="username"></label>
+			</div>
+			<div class="field emailField" id="field-email">
+				<input id="emailInput" type="email" name="email" class="input" aria-invalid="false" autocomplete="email" placeholder=" " onblur="validate(`email`, this.value, document.getElementById(`field-email`), document.getElementById(`container`))" />
+				<label for="emailInput" class="label">Email</label>
+				<label for="emailInput" class="input-error" id="email"></label>
+			</div>
+			<div class="field passwordField" id="field-password">
+				<input type="password" name="password" class="input" id="passwordInput" aria-invalid="false" autocomplete="new-password" placeholder=" " onblur="validate(`password`, this.value, document.getElementById(`field-password`), document.getElementById(`container`))" />
+				<label for="passwordInput" class="label">Password</label>
+				<label for="passwordInput" class="input-error" id="password"></label>
+			</div>
+			<div class="show-password-div">
+				<input id="show-password" type="checkbox" autocomplete="off" />
+				<label id="show-password-label" onclick="toggleV()" for="show-password">
+					<span></span>
+					Show Password
+				</label>
+			</div>
+			<div class="options">
+				<div class="signup">
+					<input id="signup-submit" type="submit" value="Sign Up" />
+				</div>
+				<div class="have-account">
+					<a id="signup-link">Sign In</a>
+				</div>
+			</div>
+		</form>
+	</body>
+</html>

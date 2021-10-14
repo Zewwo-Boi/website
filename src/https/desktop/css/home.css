@@ -67,7 +67,7 @@ div.body {
 	justify-content: center;
 	margin: 0;
 	text-align: center;
-	color: #002383;
+	color: #000000;
 	animation: text-hover-after 0.2s ease-in 0s;
 }
 
@@ -257,7 +257,7 @@ div.body {
 
 @keyframes text-hover {
 	from {
-		color: #002383;
+		color: #000000;
 	}
 
 	to {
@@ -271,7 +271,7 @@ div.body {
 	}
 
 	to {
-		color: #002383;
+		color: #000000;
 	}
 }
 

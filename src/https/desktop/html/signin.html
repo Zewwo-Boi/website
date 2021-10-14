@@ -4,30 +4,57 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Login to Simply">
 		<title>Simply - Sign in</title>
 		<link rel="stylesheet" href="/public/css/root.css" />
 		<link rel="stylesheet" href="/desktop/css/signin.css" />
 		<link rel="stylesheet" href="/public/font/roboto/stylesheet.css" />
 		<link rel="preload" href="/public/font/poppins/stylesheet.css" as="style" onload="this.rel='stylesheet'" />
 		<script src="/desktop/js/signin.js"></script>
+		<script src="/public/js/progressbar.js"></script>
 	</head>
-	<body>
-		<form class="login-container glass-morphism" id="container">
-			<h2 id="login-header">Sign In</h2>
-			<div class="field">
-				<input type="email" name="email" class="input" required autocomplete="off" placeholder=" " />
-				<label for="email" class="label">Email</label>
+	<body class="theme-white">
+		<div id="uCITgH">
+			<div class="dkVGfg"></div>
+			<div class="AQ9jNR u3phRK"></div>
+			<div class="AQ9jNR hjDIHO"></div>
+		</div>
+		<div id="go-back">
+			<div class="svg">
+				<svg viewBox="0 0 24 24" fill="#000000">
+					<path d="M0 0h24v24H0V0z" fill="none" />
+					<path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z" />
+				</svg>
 			</div>
-			<div class="field">
-				<input type="password" name="password" class="input" id="passwordInput" required autocomplete="off" placeholder=" " />
-				<label for="password" class="label">Password</label>
+
+			<a id="FjfFDN">Go back</a>
+		</div>
+		<form class="login-container" id="container" onsubmit="login()">
+			<h2 id="login-header">Sign In</h2>
+			<div class="field emailField" id="field-email">
+				<input id="emailInput" type="text" name="email" class="input" aria-invalid="false" autocomplete="username" placeholder=" " onblur="validate(`email`, this.value, document.getElementById(`field-email`), document.getElementById(`container`))" />
+				<label for="emailInput" class="label">Email/Username</label>
+				<label for="emailInput" class="input-error" id="email"></label>
+			</div>
+			<div class="field passwordField" id="field-password">
+				<input type="password" name="password" class="input" id="passwordInput" aria-invalid="false" autocomplete="current-password" placeholder=" " onblur="validate(`password`, this.value, document.getElementById(`field-password`), document.getElementById(`container`))" />
+				<label for="passwordInput" class="label">Password</label>
+				<label for="passwordInput" class="input-error" id="password"></label>
 			</div>
 			<div class="show-password-div">
 				<input id="show-password" type="checkbox" autocomplete="off" />
-				<label for="show-password">
+				<label id="show-password-label" onclick="toggleV()" for="show-password">
 					<span></span>
 					Show Password
 				</label>
+			</div>
+			<div class="options">
+				<div class="login">
+					<input id="login-submit" type="submit" value="Sign In" />
+				</div>
+				<div class="no-account">
+					<a id="signup-link">Sign Up</a>
+				</div>
 			</div>
 		</form>
 	</body>
